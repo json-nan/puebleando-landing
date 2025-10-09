@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
 import { ChevronDown } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false)
@@ -9,18 +9,29 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-secondary to-primary">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Imagen de fondo */}
+      <div className="absolute inset-0">
+        <img
+          src="/images/main-bg.PNG"
+          alt="El Salvador"
+          className="w-full h-full object-cover"
+        />
+        {/* Overlay oscuro para mejor legibilidad del texto */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50"></div>
+      </div>
+
       {/* Stickers flotantes */}
       <img
         src="/images/Sticker.El-Salvador.png"
         alt="El Salvador"
-        className="absolute top-20 right-10 w-32 md:w-40 opacity-20 animate-[float_6s_ease-in-out_infinite]"
+        className="absolute top-20 right-10 w-32 md:w-40 opacity-30 animate-[float_6s_ease-in-out_infinite] z-10"
         style={{ animationDelay: '0s' }}
       />
       <img
         src="/images/Sticker.Alsuave.png"
         alt="Alsuave"
-        className="absolute bottom-20 left-10 w-28 md:w-36 opacity-20 animate-[float_7s_ease-in-out_infinite]"
+        className="absolute bottom-20 left-10 w-28 md:w-36 opacity-30 animate-[float_7s_ease-in-out_infinite] z-10"
         style={{ animationDelay: '1s' }}
       />
 
@@ -31,14 +42,17 @@ export default function Hero() {
           }`}
         >
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg">
-            Descubre El Salvador
+            <span>Bienvenidos a </span>
+            <br />
+            <span>La Bandita </span>
+            <span>Puebleadora</span>
           </h1>
-          <p className="text-xl md:text-2xl text-accent mb-4 font-semibold drop-shadow-md">
-            Puebleando por las Maravillas de Nuestro País
+          <p className="text-lg font-bold md:text-xl text-accent max-w-2xl mx-auto mb-8 drop-shadow-2xl">
+            Comunidad de aventureros y trepacerros de corazón.
           </p>
           <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8 drop-shadow">
-            Montañas, pueblos coloniales, rutas inolvidables y experiencias únicas
-            te esperan en cada rincón de El Salvador
+            Montañas, pueblos coloniales, rutas inolvidables y experiencias
+            únicas te esperan en cada rincón de El Salvador
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
@@ -57,7 +71,7 @@ export default function Hero() {
         </div>
 
         {/* Indicador de scroll */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 animate-bounce">
           <ChevronDown className="w-8 h-8 text-accent" />
         </div>
       </div>

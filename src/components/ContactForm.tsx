@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from 'react'
-import { Mail, Phone, MapPin, Send } from 'lucide-react'
+import { MapPin, Phone, Send } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -22,7 +22,7 @@ export default function ContactForm() {
           }
         })
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     )
 
     if (sectionRef.current) {
@@ -47,7 +47,9 @@ export default function ContactForm() {
     }, 1500)
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -86,11 +88,15 @@ export default function ContactForm() {
           {/* Información de contacto */}
           <div
             className={`transition-all duration-700 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+              isVisible
+                ? 'opacity-100 translate-x-0'
+                : 'opacity-0 -translate-x-10'
             }`}
           >
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-2xl">
-              <h3 className="text-2xl font-bold text-accent mb-8">Información de Contacto</h3>
+              <h3 className="text-2xl font-bold text-accent mb-8">
+                Información de Contacto
+              </h3>
 
               <div className="space-y-6">
                 <div className="flex items-start">
@@ -100,18 +106,6 @@ export default function ContactForm() {
                   <div>
                     <p className="text-white font-semibold mb-1">Teléfono</p>
                     <p className="text-white/80">+503 1234-5678</p>
-                    <p className="text-white/80">+503 8765-4321</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="bg-accent rounded-full p-3 mr-4">
-                    <Mail className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold mb-1">Email</p>
-                    <p className="text-white/80">info@puebleandosv.com</p>
-                    <p className="text-white/80">tours@puebleandosv.com</p>
                   </div>
                 </div>
 
@@ -128,15 +122,11 @@ export default function ContactForm() {
               </div>
 
               <div className="mt-8 pt-8 border-t border-white/20">
-                <p className="text-white/90 mb-4">
-                  Horarios de atención:
-                </p>
+                <p className="text-white/90 mb-4">Horarios de atención:</p>
                 <p className="text-white/80">
                   Lunes a Viernes: 8:00 AM - 6:00 PM
                 </p>
-                <p className="text-white/80">
-                  Sábados: 9:00 AM - 2:00 PM
-                </p>
+                <p className="text-white/80">Sábados: 9:00 AM - 2:00 PM</p>
               </div>
             </div>
           </div>
@@ -144,12 +134,20 @@ export default function ContactForm() {
           {/* Formulario */}
           <div
             className={`transition-all duration-700 delay-200 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+              isVisible
+                ? 'opacity-100 translate-x-0'
+                : 'opacity-0 translate-x-10'
             }`}
           >
-            <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 shadow-2xl">
+            <form
+              onSubmit={handleSubmit}
+              className="bg-white rounded-2xl p-8 shadow-2xl"
+            >
               <div className="mb-6">
-                <label htmlFor="nombre" className="block text-primary font-semibold mb-2">
+                <label
+                  htmlFor="nombre"
+                  className="block text-primary font-semibold mb-2"
+                >
                   Nombre Completo *
                 </label>
                 <input
@@ -165,23 +163,10 @@ export default function ContactForm() {
               </div>
 
               <div className="mb-6">
-                <label htmlFor="email" className="block text-primary font-semibold mb-2">
-                  Correo Electrónico *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-secondary focus:outline-none transition-colors"
-                  placeholder="tu@email.com"
-                />
-              </div>
-
-              <div className="mb-6">
-                <label htmlFor="telefono" className="block text-primary font-semibold mb-2">
+                <label
+                  htmlFor="telefono"
+                  className="block text-primary font-semibold mb-2"
+                >
                   Teléfono
                 </label>
                 <input
@@ -196,7 +181,10 @@ export default function ContactForm() {
               </div>
 
               <div className="mb-6">
-                <label htmlFor="mensaje" className="block text-primary font-semibold mb-2">
+                <label
+                  htmlFor="mensaje"
+                  className="block text-primary font-semibold mb-2"
+                >
                   Mensaje *
                 </label>
                 <textarea
@@ -213,7 +201,9 @@ export default function ContactForm() {
 
               {submitMessage && (
                 <div className="mb-4 p-4 bg-secondary/10 border-2 border-secondary rounded-lg">
-                  <p className="text-secondary font-semibold">{submitMessage}</p>
+                  <p className="text-secondary font-semibold">
+                    {submitMessage}
+                  </p>
                 </div>
               )}
 

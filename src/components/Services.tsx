@@ -1,31 +1,35 @@
+import { Camera, Map, Mountain, Users } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
-import { Mountain, Map, Users, Camera } from 'lucide-react'
 
 const services = [
   {
     icon: Mountain,
     title: 'Aventuras en Montañas',
-    description: 'Senderismo, escalada y tours guiados por los volcanes y montañas más impresionantes',
+    description:
+      'Senderismo, escalada y tours guiados por los volcanes y montañas más impresionantes',
   },
   {
     icon: Map,
     title: 'Rutas Culturales',
-    description: 'Recorridos por pueblos coloniales, museos y sitios históricos',
+    description:
+      'Recorridos por pueblos coloniales, museos y sitios históricos',
   },
   {
     icon: Users,
     title: 'Tours Grupales',
-    description: 'Experiencias compartidas con grupos pequeños y guías expertos',
+    description:
+      'Experiencias compartidas con grupos pequeños y guías expertos',
   },
   {
     icon: Camera,
     title: 'Tours Fotográficos',
-    description: 'Captura los mejores momentos en los lugares más pintorescos del país',
+    description:
+      'Captura los mejores momentos en los lugares más pintorescos del país',
   },
 ]
 
 export default function Services() {
-  const [visibleItems, setVisibleItems] = useState<number[]>([])
+  const [visibleItems, setVisibleItems] = useState<Array<number>>([])
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -41,7 +45,7 @@ export default function Services() {
           }
         })
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     )
 
     if (sectionRef.current) {
@@ -52,7 +56,10 @@ export default function Services() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden"
+    >
       {/* Stickers decorativos */}
       <img
         src="/images/Sticker.Que.chivo.png"
@@ -63,7 +70,7 @@ export default function Services() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-            Nuestros Servicios
+            Nuestros Servicios Personalizados
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Experiencias diseñadas para que descubras lo mejor de El Salvador
@@ -85,7 +92,9 @@ export default function Services() {
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-secondary rounded-full mb-6">
                   <Icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-primary mb-4">{service.title}</h3>
+                <h3 className="text-xl font-bold text-primary mb-4">
+                  {service.title}
+                </h3>
                 <p className="text-gray-600">{service.description}</p>
               </div>
             )

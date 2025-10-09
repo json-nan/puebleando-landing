@@ -1,26 +1,31 @@
+import { Award, Heart, Map, Users } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
-import { Heart, Users, Award, Map } from 'lucide-react'
+import AnimatedNumbers from 'react-animated-numbers'
 
 const stats = [
   {
     icon: Users,
-    number: '500+',
+    number: 300,
     label: 'Viajeros Felices',
+    trailing: '+',
   },
   {
     icon: Map,
-    number: '50+',
+    number: 30,
     label: 'Destinos Explorados',
+    trailing: '+',
   },
   {
     icon: Award,
-    number: '10+',
+    number: 5,
     label: 'Años de Experiencia',
+    trailing: '+',
   },
   {
     icon: Heart,
-    number: '100%',
+    number: 100,
     label: 'Satisfacción',
+    trailing: '%',
   },
 ]
 
@@ -37,7 +42,7 @@ export default function About() {
           }
         })
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     )
 
     if (sectionRef.current) {
@@ -71,7 +76,9 @@ export default function About() {
           {/* Título */}
           <div
             className={`text-center mb-12 transition-all duration-700 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              isVisible
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-10'
             }`}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
@@ -93,23 +100,27 @@ export default function About() {
             </div>
 
             <p className="text-lg text-gray-700 leading-relaxed mb-6 text-center md:text-left">
-              <span className="font-bold text-primary">Puebleando SV</span> nació del amor
-              profundo por El Salvador y el deseo de compartir sus tesoros escondidos con el mundo.
-              Somos una agencia de viajes salvadoreña dedicada a crear experiencias turísticas
-              auténticas que conectan a los viajeros con la verdadera esencia de nuestro país.
+              <span className="font-bold text-primary">Puebleando SV</span>{' '}
+              nació del amor profundo por El Salvador y el deseo de compartir
+              sus tesoros escondidos con el mundo. Somos una agencia de viajes
+              salvadoreña dedicada a crear experiencias turísticas auténticas
+              que conectan a los viajeros con la verdadera esencia de nuestro
+              país.
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed mb-6 text-center md:text-left">
-              Desde majestuosos volcanes hasta pintorescos pueblos coloniales, desde rutas
-              culturales hasta aventuras en la naturaleza, nos especializamos en mostrar la
-              diversidad y belleza de El Salvador de una manera única y memorable.
+              Desde majestuosos volcanes hasta pintorescos pueblos coloniales,
+              desde rutas culturales hasta aventuras en la naturaleza, nos
+              especializamos en mostrar la diversidad y belleza de El Salvador
+              de una manera única y memorable.
             </p>
 
             <p className="text-lg text-gray-700 leading-relaxed text-center md:text-left">
-              Nuestro equipo está compuesto por guías expertos, apasionados por la historia,
-              la cultura y las tradiciones salvadoreñas. Nos comprometemos a ofrecer tours
-              personalizados, seguros y de alta calidad que no solo muestren los destinos,
-              sino que cuenten las historias que los hacen especiales.
+              Nuestro equipo está compuesto por guías expertos, apasionados por
+              la historia, la cultura y las tradiciones salvadoreñas. Nos
+              comprometemos a ofrecer tours personalizados, seguros y de alta
+              calidad que no solo muestren los destinos, sino que cuenten las
+              historias que los hacen especiales.
             </p>
           </div>
 
@@ -130,8 +141,13 @@ export default function About() {
                   <div className="inline-flex items-center justify-center w-12 h-12 bg-secondary/10 rounded-full mb-4">
                     <Icon className="w-6 h-6 text-secondary" />
                   </div>
-                  <p className="text-3xl font-bold text-primary mb-2">{stat.number}</p>
-                  <p className="text-sm text-gray-600 font-semibold">{stat.label}</p>
+                  <p className="text-3xl font-bold text-primary mb-2">
+                    <AnimatedNumbers animateToNumber={stat.number} />
+                    {stat.trailing}
+                  </p>
+                  <p className="text-sm text-gray-600 font-semibold">
+                    {stat.label}
+                  </p>
                 </div>
               )
             })}
@@ -140,7 +156,9 @@ export default function About() {
           {/* Misión */}
           <div
             className={`mt-12 text-center transition-all duration-700 delay-700 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              isVisible
+                ? 'opacity-100 translate-y-0'
+                : 'opacity-0 translate-y-10'
             }`}
           >
             <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-10 shadow-xl">
@@ -148,9 +166,10 @@ export default function About() {
                 Nuestra Misión
               </h3>
               <p className="text-lg text-white/90 leading-relaxed max-w-3xl mx-auto">
-                Promover el turismo sostenible en El Salvador, creando experiencias
-                inolvidables que generen un impacto positivo en las comunidades locales
-                y preserven nuestro patrimonio natural y cultural para las futuras generaciones.
+                Promover el turismo sostenible en El Salvador, creando
+                experiencias inolvidables que generen un impacto positivo en las
+                comunidades locales y preserven nuestro patrimonio natural y
+                cultural para las futuras generaciones.
               </p>
             </div>
           </div>

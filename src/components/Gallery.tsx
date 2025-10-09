@@ -1,43 +1,44 @@
-import { useState, useEffect, useRef } from 'react'
-import { MapPin, Mountain, Church, Route } from 'lucide-react'
+import { Church, MapPin, Mountain, Route } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
 
 const destinations = [
   {
     id: 1,
-    name: 'Volcán de Izalco',
-    category: 'Montañas',
-    description: 'El faro del Pacífico, una maravilla natural que te dejará sin aliento',
+    name: 'Volcanes & cerros',
+
+    description:
+      'El faro del Pacífico, una maravilla natural que te dejará sin aliento',
     icon: Mountain,
-    image: '/images/Sticker.Izalco.png',
+    image: '/images/gallery-comasagua.jpg',
   },
   {
     id: 2,
-    name: 'San Salvador',
-    category: 'Ciudad',
+    name: 'Playas & lagos',
     description: 'Capital vibrante llena de historia, cultura y gastronomía',
     icon: Church,
-    image: '/images/Sticker.San.Salvador.png',
+    image: '/images/gallery-beaches.jpg',
   },
   {
     id: 3,
     name: 'Ruta de las Flores',
-    category: 'Rutas',
+
     description: 'Pueblos pintorescos, cafetales y artesanías tradicionales',
     icon: Route,
-    image: '/images/Sticker.El.Talapo.png',
+    image: '/images/gallery-routes.jpg',
   },
   {
     id: 4,
-    name: 'Pueblos Coloniales',
-    category: 'Pueblos',
-    description: 'Arquitectura colonial, tradiciones y la hospitalidad salvadoreña',
+    name: 'Pueblos Vivos',
+
+    description:
+      'Arquitectura colonial, tradiciones y la hospitalidad salvadoreña',
     icon: Church,
-    image: '/images/Sticker.Que.chivo.png',
+    image: '/images/gallery-towns.jpg',
   },
 ]
 
 export default function Gallery() {
-  const [visibleCards, setVisibleCards] = useState<number[]>([])
+  const [visibleCards, setVisibleCards] = useState<Array<number>>([])
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -53,7 +54,7 @@ export default function Gallery() {
           }
         })
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     )
 
     if (sectionRef.current) {
@@ -64,7 +65,11 @@ export default function Gallery() {
   }, [])
 
   return (
-    <section id="destinos" ref={sectionRef} className="py-20 bg-white relative overflow-hidden">
+    <section
+      id="destinos"
+      ref={sectionRef}
+      className="py-20 bg-white relative overflow-hidden"
+    >
       {/* Sticker decorativo */}
       <img
         src="/images/Sticker.Alsuave.png"
@@ -98,16 +103,15 @@ export default function Gallery() {
                   <img
                     src={dest.image}
                     alt={dest.name}
-                    className="w-32 h-32 object-contain group-hover:scale-110 transition-transform duration-500"
+                    className="object-contain group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 right-3 bg-accent px-3 py-1 rounded-full">
-                    <span className="text-xs font-bold text-primary">{dest.category}</span>
-                  </div>
                 </div>
                 <div className="p-6">
                   <div className="flex items-center mb-3">
                     <Icon className="w-5 h-5 text-secondary mr-2" />
-                    <h3 className="text-xl font-bold text-primary">{dest.name}</h3>
+                    <h3 className="text-xl font-bold text-primary">
+                      {dest.name}
+                    </h3>
                   </div>
                   <p className="text-gray-600">{dest.description}</p>
                   <button className="mt-4 text-secondary font-semibold hover:text-primary transition-colors flex items-center group-hover:translate-x-2 transition-transform duration-300">
