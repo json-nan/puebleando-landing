@@ -6,10 +6,7 @@ import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    viteReact(),
-    tailwindcss(),
-  ],
+  plugins: [viteReact(), tailwindcss()],
   // @ts-ignore
   test: {
     globals: true,
@@ -18,12 +15,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
-    },
-  },
-  build: {
-    commonjsOptions: {
-      include: [/react-animated-numbers/, /node_modules/],
-      transformMixedEsModules: true,
     },
   },
 })

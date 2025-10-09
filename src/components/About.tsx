@@ -1,6 +1,5 @@
 import { Award, Heart, Map, Users } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
-import AnimatedNumbers from 'react-animated-numbers'
 
 const stats = [
   {
@@ -142,7 +141,7 @@ export default function About() {
                     <Icon className="w-6 h-6 text-secondary" />
                   </div>
                   <p className="text-3xl font-bold text-primary mb-2">
-                    <AnimatedNumbers animateToNumber={stat.number} />
+                    <span>{stat.number}</span>
                     {stat.trailing}
                   </p>
                   <p className="text-sm text-gray-600 font-semibold">
