@@ -20,4 +20,10 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
     },
   },
+  build: {
+    commonjsOptions: {
+      include: [/react-animated-numbers/, /node_modules/],
+      transformMixedEsModules: true,
+    },
+  },
 })
