@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { Menu, X, Mountain } from 'lucide-react'
+import { Menu, Mountain, X } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -23,7 +23,10 @@ export default function Header() {
     { href: '#contacto', label: 'Contacto' },
   ]
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
     e.preventDefault()
     setIsOpen(false)
 
