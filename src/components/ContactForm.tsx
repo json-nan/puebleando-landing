@@ -1,4 +1,4 @@
-import { MapPin, Phone, Send } from 'lucide-react'
+import { Mail, MapPin, Phone, Send } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 
 export default function ContactForm() {
@@ -60,8 +60,15 @@ export default function ContactForm() {
     <section
       id="contacto"
       ref={sectionRef}
-      className="py-20 bg-gradient-to-br from-primary via-secondary to-primary relative overflow-hidden"
+      className="py-20 bg-gradient-to-br from-primary via-secondary to-primary relative"
     >
+      <img
+        src="/images/Sticker.Alsuave.png"
+        alt="Alsuave"
+        className="absolute -top-20 right-0 transform -translate-x-1/2 size-60 opacity-90 z-10 -rotate-8"
+        style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.4))' }}
+      />
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -82,19 +89,13 @@ export default function ContactForm() {
             }`}
           >
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-2xl relative">
-              {/* Stickers pegados a las esquinas de la tarjeta */}
               <img
-                src="/images/Sticker.San.Salvador.png"
-                alt="San Salvador"
-                className="absolute top-2 left-2 w-24 opacity-85 transform rotate-12 z-30"
+                src="/images/Sticker.El.Talapo.png"
+                alt="Alsuave"
+                className="absolute -bottom-20 right-0 transform size-60 opacity-90 z-10 -rotate-8"
                 style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.4))' }}
               />
-              <img
-                src="/images/Sticker.Izalco.png"
-                alt="Izalco"
-                className="absolute top-2 right-2 w-24 opacity-80 transform -rotate-10 z-30"
-                style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.4))' }}
-              />
+
               <h3 className="text-2xl font-bold text-accent mb-8">
                 Información de Contacto
               </h3>
@@ -107,6 +108,16 @@ export default function ContactForm() {
                   <div>
                     <p className="text-white font-semibold mb-1">Teléfono</p>
                     <p className="text-white/80">+503 1234-5678</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start">
+                  <div className="bg-accent rounded-full p-3 mr-4">
+                    <Mail className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold mb-1">Email</p>
+                    <p className="text-white/80">puebleandotripssv@gmail.com</p>
                   </div>
                 </div>
 
@@ -144,19 +155,6 @@ export default function ContactForm() {
               onSubmit={handleSubmit}
               className="bg-white rounded-2xl p-8 shadow-2xl relative"
             >
-              {/* Stickers pegados a las esquinas del formulario */}
-              <img
-                src="/images/Sticker.El.Talapo.png"
-                alt="El Talapo"
-                className="absolute bottom-2 left-2 w-24 opacity-85 transform rotate-8 z-30"
-                style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
-              />
-              <img
-                src="/images/Sticker.Que.chivo.png"
-                alt="Que Chivo"
-                className="absolute bottom-2 right-2 w-24 opacity-80 transform -rotate-6 z-30"
-                style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
-              />
               <div className="mb-6">
                 <label
                   htmlFor="nombre"

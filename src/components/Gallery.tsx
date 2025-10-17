@@ -93,39 +93,6 @@ export default function Gallery() {
                     : 'opacity-0 translate-y-10'
                 }`}
               >
-                {/* Stickers pegados a las esquinas de las tarjetas */}
-                {index === 0 && (
-                  <img
-                    src="/images/Sticker.Que.chivo.png"
-                    alt="Que Chivo"
-                    className="absolute top-2 right-2 w-24 opacity-85 transform rotate-12 z-30"
-                    style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
-                  />
-                )}
-                {index === 1 && (
-                  <img
-                    src="/images/Sticker.Izalco.png"
-                    alt="Izalco"
-                    className="absolute top-2 left-2 w-24 opacity-80 transform -rotate-10 z-30"
-                    style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
-                  />
-                )}
-                {index === 2 && (
-                  <img
-                    src="/images/Sticker.San.Salvador.png"
-                    alt="San Salvador"
-                    className="absolute bottom-2 right-2 w-24 opacity-85 transform rotate-8 z-30"
-                    style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
-                  />
-                )}
-                {index === 3 && (
-                  <img
-                    src="/images/Sticker.Alsuave.png"
-                    alt="Alsuave"
-                    className="absolute bottom-2 left-2 w-24 opacity-80 transform -rotate-6 z-30"
-                    style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
-                  />
-                )}
                 <div className="relative h-48 bg-gradient-to-br from-secondary to-primary flex items-center justify-center overflow-hidden">
                   <img
                     src={dest.image}

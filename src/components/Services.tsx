@@ -60,7 +60,6 @@ export default function Services() {
       ref={sectionRef}
       className="py-20 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden"
     >
-
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
@@ -83,39 +82,6 @@ export default function Services() {
                     : 'opacity-0 scale-95'
                 }`}
               >
-                {/* Stickers pegados a las esquinas de las tarjetas */}
-                {index === 0 && (
-                  <img
-                    src="/images/Sticker.El-Salvador.png"
-                    alt="El Salvador"
-                    className="absolute top-2 right-2 w-24 opacity-85 transform rotate-12 z-30"
-                    style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
-                  />
-                )}
-                {index === 1 && (
-                  <img
-                    src="/images/Sticker.Alsuave.png"
-                    alt="Alsuave"
-                    className="absolute top-2 left-2 w-24 opacity-80 transform -rotate-8 z-30"
-                    style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
-                  />
-                )}
-                {index === 2 && (
-                  <img
-                    src="/images/Sticker.El.Talapo.png"
-                    alt="El Talapo"
-                    className="absolute bottom-2 right-2 w-24 opacity-85 transform rotate-6 z-30"
-                    style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
-                  />
-                )}
-                {index === 3 && (
-                  <img
-                    src="/images/Sticker.Que.chivo.png"
-                    alt="Que Chivo"
-                    className="absolute bottom-2 left-2 w-24 opacity-80 transform -rotate-6 z-30"
-                    style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
-                  />
-                )}
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-secondary rounded-full mb-6">
                   <Icon className="w-8 h-8 text-white" />
                 </div>

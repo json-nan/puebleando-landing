@@ -23,7 +23,7 @@ const testimonials = [
 ]
 
 export default function Testimonials() {
-  const [visibleCards, setVisibleCards] = useState<number[]>([])
+  const [visibleCards, setVisibleCards] = useState<Array<number>>([])
   const sectionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export default function Testimonials() {
           }
         })
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     )
 
     if (sectionRef.current) {
@@ -50,15 +50,18 @@ export default function Testimonials() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white relative overflow-hidden">
-
+    <section
+      ref={sectionRef}
+      className="py-20 bg-white relative overflow-hidden"
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
             Lo Que Dicen Nuestros Clientes
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Testimonios reales de viajeros que han explorado El Salvador con nosotros
+            Testimonios reales de viajeros que han explorado El Salvador con
+            nosotros
           </p>
         </div>
 
@@ -70,35 +73,10 @@ export default function Testimonials() {
                 visibleCards.includes(index)
                   ? 'opacity-100 translate-x-0'
                   : index % 2 === 0
-                  ? 'opacity-0 -translate-x-10'
-                  : 'opacity-0 translate-x-10'
+                    ? 'opacity-0 -translate-x-10'
+                    : 'opacity-0 translate-x-10'
               }`}
             >
-              {/* Stickers pegados a las esquinas de las tarjetas */}
-              {index === 0 && (
-                <img
-                  src="/images/Sticker.Alsuave.png"
-                  alt="Alsuave"
-                  className="absolute top-2 left-2 w-24 opacity-85 transform rotate-12 z-30"
-                  style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
-                />
-              )}
-              {index === 1 && (
-                <img
-                  src="/images/Sticker.El-Salvador.png"
-                  alt="El Salvador"
-                  className="absolute top-2 right-2 w-24 opacity-80 transform -rotate-8 z-30"
-                  style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
-                />
-              )}
-              {index === 2 && (
-                <img
-                  src="/images/Sticker.Que.chivo.png"
-                  alt="Que Chivo"
-                  className="absolute bottom-2 right-2 w-28 opacity-85 transform rotate-15 z-30"
-                  style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
-                />
-              )}
               <div className="flex mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 fill-accent text-accent" />

@@ -63,7 +63,6 @@ export default function Header() {
               onClick={(e) => handleNavClick(e, '#inicio')}
               className="flex items-center space-x-2 text-white hover:text-accent transition-colors"
             >
-              <Mountain className="w-8 h-8" />
               <span className="text-2xl font-bold">Puebleando SV</span>
             </a>
 

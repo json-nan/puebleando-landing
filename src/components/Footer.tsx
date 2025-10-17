@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Mail, Phone, MapPin } from 'lucide-react'
+import { Facebook, Instagram, Mail, MapPin, Phone } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -7,10 +7,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo y descripción */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-bold text-accent mb-4">Puebleando SV</h3>
+            <h3 className="text-2xl font-bold text-accent mb-4">
+              Puebleando SV
+            </h3>
             <p className="text-white/80 mb-4">
-              Tu agencia de viajes de confianza para explorar las maravillas de El Salvador.
-              Descubre montañas, pueblos coloniales, rutas culturales y experiencias únicas.
+              Tu agencia de viajes de confianza para explorar las maravillas de
+              El Salvador. Descubre montañas, pueblos coloniales, rutas
+              culturales y experiencias únicas.
             </p>
             <div className="flex space-x-4">
               <a
@@ -39,30 +42,47 @@ export default function Footer() {
 
           {/* Enlaces rápidos */}
           <div>
-            <h4 className="text-lg font-bold text-accent mb-4">Enlaces Rápidos</h4>
+            <h4 className="text-lg font-bold text-accent mb-4">
+              Enlaces Rápidos
+            </h4>
             <ul className="space-y-2">
               <li>
-                <a href="#sobre-nosotros" className="text-white/80 hover:text-accent transition-colors">
+                <a
+                  href="#sobre-nosotros"
+                  className="text-white/80 hover:text-accent transition-colors"
+                >
                   Sobre Nosotros
                 </a>
               </li>
               <li>
-                <a href="#destinos" className="text-white/80 hover:text-accent transition-colors">
+                <a
+                  href="#destinos"
+                  className="text-white/80 hover:text-accent transition-colors"
+                >
                   Destinos
                 </a>
               </li>
               <li>
-                <a href="#servicios" className="text-white/80 hover:text-accent transition-colors">
+                <a
+                  href="#servicios"
+                  className="text-white/80 hover:text-accent transition-colors"
+                >
                   Servicios
                 </a>
               </li>
               <li>
-                <a href="#testimonios" className="text-white/80 hover:text-accent transition-colors">
+                <a
+                  href="#testimonios"
+                  className="text-white/80 hover:text-accent transition-colors"
+                >
                   Testimonios
                 </a>
               </li>
               <li>
-                <a href="#contacto" className="text-white/80 hover:text-accent transition-colors">
+                <a
+                  href="#contacto"
+                  className="text-white/80 hover:text-accent transition-colors"
+                >
                   Contacto
                 </a>
               </li>
@@ -79,7 +99,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center text-white/80">
                 <Mail className="w-4 h-4 mr-2 text-accent" />
-                info@puebleandosv.com
+                puebleandotripssv@gmail.com
               </li>
               <li className="flex items-start text-white/80">
                 <MapPin className="w-4 h-4 mr-2 text-accent mt-1" />
@@ -91,11 +111,10 @@ export default function Footer() {
 
         <div className="border-t border-white/20 mt-8 pt-8 text-center">
           <p className="text-white/60">
-            &copy; {new Date().getFullYear()} Puebleando SV. Todos los derechos reservados.
+            &copy; {new Date().getFullYear()} Puebleando SV. Todos los derechos
+            reservados.
           </p>
-          <p className="text-white/60 mt-2">
-            Hecho con amor en El Salvador 🇸🇻
-          </p>
+          <p className="text-white/60 mt-2">Hecho con amor en El Salvador 🇸🇻</p>
         </div>
       </div>
     </footer>

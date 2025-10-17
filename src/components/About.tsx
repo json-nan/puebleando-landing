@@ -55,28 +55,14 @@ export default function About() {
     <section
       id="sobre-nosotros"
       ref={sectionRef}
-      className="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden"
+      className="py-20 bg-gradient-to-b from-white to-gray-50 relative "
     >
-      {/* Stickers decorativos en el fondo */}
       <img
-        src="/images/Sticker.Izalco.png"
-        alt="Izalco"
-        className="absolute top-16 right-16 w-40 opacity-70 z-10 transform rotate-15"
-        style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
+        src="/images/Sticker.Que.chivo.png"
+        alt="Que Chivo"
+        className="absolute -top-24 left-20 size-60 opacity-90 z-10 transform rotate-12"
+        style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.4))' }}
       />
-      <img
-        src="/images/Sticker.El.Talapo.png"
-        alt="El Talapo"
-        className="absolute bottom-16 left-16 w-36 opacity-65 z-10 transform -rotate-12"
-        style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
-      />
-      <img
-        src="/images/Sticker.San.Salvador.png"
-        alt="San Salvador"
-        className="absolute top-1/2 left-1/4 w-32 opacity-60 z-10 transform rotate-8"
-        style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
-      />
-
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Título */}
@@ -161,13 +147,14 @@ export default function About() {
 
           {/* Misión */}
           <div
-            className={`mt-12 text-center transition-all duration-700 delay-700 ${
+            className={`mt-12 text-center transition-all duration-700 delay-700 relative ${
               isVisible
                 ? 'opacity-100 translate-y-0'
                 : 'opacity-0 translate-y-10'
             }`}
           >
             <div className="bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 md:p-10 shadow-xl">
+              {/* Sticker hexagonal amarillo en la esquina inferior izquierda */}
               <h3 className="text-2xl md:text-3xl font-bold text-accent mb-4">
                 Nuestra Misión
               </h3>
