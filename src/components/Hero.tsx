@@ -21,18 +21,24 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50"></div>
       </div>
 
-      {/* Stickers flotantes */}
+      {/* Stickers decorativos en el fondo */}
       <img
         src="/images/Sticker.El-Salvador.png"
         alt="El Salvador"
-        className="absolute top-20 right-10 w-32 md:w-40 opacity-30 animate-[float_6s_ease-in-out_infinite] z-10"
-        style={{ animationDelay: '0s' }}
+        className="absolute top-16 right-16 w-40 opacity-70 z-10 transform rotate-12"
+        style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.4))' }}
       />
       <img
         src="/images/Sticker.Alsuave.png"
         alt="Alsuave"
-        className="absolute bottom-20 left-10 w-28 md:w-36 opacity-30 animate-[float_7s_ease-in-out_infinite] z-10"
-        style={{ animationDelay: '1s' }}
+        className="absolute bottom-16 left-16 w-36 opacity-65 z-10 transform -rotate-8"
+        style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.4))' }}
+      />
+      <img
+        src="/images/Sticker.Que.chivo.png"
+        alt="Que Chivo"
+        className="absolute top-1/3 left-1/4 w-32 opacity-60 z-10 transform rotate-15"
+        style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.4))' }}
       />
 
       <div className="container mx-auto px-4 py-20 relative z-10">

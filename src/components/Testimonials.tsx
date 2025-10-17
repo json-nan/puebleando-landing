@@ -51,12 +51,6 @@ export default function Testimonials() {
 
   return (
     <section ref={sectionRef} className="py-20 bg-white relative overflow-hidden">
-      {/* Sticker decorativo */}
-      <img
-        src="/images/Sticker.El-Salvador.png"
-        alt="Decoration"
-        className="absolute top-10 left-10 w-28 opacity-10 animate-[float_7s_ease-in-out_infinite]"
-      />
 
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
@@ -72,7 +66,7 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className={`bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 ${
+              className={`bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 relative ${
                 visibleCards.includes(index)
                   ? 'opacity-100 translate-x-0'
                   : index % 2 === 0
@@ -80,6 +74,31 @@ export default function Testimonials() {
                   : 'opacity-0 translate-x-10'
               }`}
             >
+              {/* Stickers pegados a las esquinas de las tarjetas */}
+              {index === 0 && (
+                <img
+                  src="/images/Sticker.Alsuave.png"
+                  alt="Alsuave"
+                  className="absolute top-2 left-2 w-24 opacity-85 transform rotate-12 z-30"
+                  style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
+                />
+              )}
+              {index === 1 && (
+                <img
+                  src="/images/Sticker.El-Salvador.png"
+                  alt="El Salvador"
+                  className="absolute top-2 right-2 w-24 opacity-80 transform -rotate-8 z-30"
+                  style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
+                />
+              )}
+              {index === 2 && (
+                <img
+                  src="/images/Sticker.Que.chivo.png"
+                  alt="Que Chivo"
+                  className="absolute bottom-2 right-2 w-28 opacity-85 transform rotate-15 z-30"
+                  style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
+                />
+              )}
               <div className="flex mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 fill-accent text-accent" />

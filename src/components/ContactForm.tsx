@@ -62,18 +62,6 @@ export default function ContactForm() {
       ref={sectionRef}
       className="py-20 bg-gradient-to-br from-primary via-secondary to-primary relative overflow-hidden"
     >
-      {/* Stickers decorativos */}
-      <img
-        src="/images/Sticker.San.Salvador.png"
-        alt="Decoration"
-        className="absolute top-20 left-10 w-32 opacity-10 animate-[float_8s_ease-in-out_infinite]"
-      />
-      <img
-        src="/images/Sticker.Izalco.png"
-        alt="Decoration"
-        className="absolute bottom-20 right-10 w-32 opacity-10 animate-[float_9s_ease-in-out_infinite]"
-      />
-
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -93,7 +81,20 @@ export default function ContactForm() {
                 : 'opacity-0 -translate-x-10'
             }`}
           >
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-2xl">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-2xl relative">
+              {/* Stickers pegados a las esquinas de la tarjeta */}
+              <img
+                src="/images/Sticker.San.Salvador.png"
+                alt="San Salvador"
+                className="absolute top-2 left-2 w-24 opacity-85 transform rotate-12 z-30"
+                style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.4))' }}
+              />
+              <img
+                src="/images/Sticker.Izalco.png"
+                alt="Izalco"
+                className="absolute top-2 right-2 w-24 opacity-80 transform -rotate-10 z-30"
+                style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.4))' }}
+              />
               <h3 className="text-2xl font-bold text-accent mb-8">
                 Información de Contacto
               </h3>
@@ -141,8 +142,21 @@ export default function ContactForm() {
           >
             <form
               onSubmit={handleSubmit}
-              className="bg-white rounded-2xl p-8 shadow-2xl"
+              className="bg-white rounded-2xl p-8 shadow-2xl relative"
             >
+              {/* Stickers pegados a las esquinas del formulario */}
+              <img
+                src="/images/Sticker.El.Talapo.png"
+                alt="El Talapo"
+                className="absolute bottom-2 left-2 w-24 opacity-85 transform rotate-8 z-30"
+                style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
+              />
+              <img
+                src="/images/Sticker.Que.chivo.png"
+                alt="Que Chivo"
+                className="absolute bottom-2 right-2 w-24 opacity-80 transform -rotate-6 z-30"
+                style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
+              />
               <div className="mb-6">
                 <label
                   htmlFor="nombre"
@@ -177,6 +191,24 @@ export default function ContactForm() {
                   onChange={handleChange}
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-secondary focus:outline-none transition-colors"
                   placeholder="+503 1234-5678"
+                />
+              </div>
+
+              <div className="mb-6">
+                <label
+                  htmlFor="email"
+                  className="block text-primary font-semibold mb-2"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-secondary focus:outline-none transition-colors"
+                  placeholder="info@puebleandosv.com"
                 />
               </div>
 

@@ -57,17 +57,24 @@ export default function About() {
       ref={sectionRef}
       className="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden"
     >
-      {/* Stickers decorativos */}
+      {/* Stickers decorativos en el fondo */}
       <img
-        src="/images/Sticker.El-Salvador.png"
-        alt="Decoration"
-        className="absolute top-10 right-10 w-40 opacity-10 animate-[float_10s_ease-in-out_infinite]"
+        src="/images/Sticker.Izalco.png"
+        alt="Izalco"
+        className="absolute top-16 right-16 w-40 opacity-70 z-10 transform rotate-15"
+        style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
       />
       <img
-        src="/images/Sticker.Alsuave.png"
-        alt="Decoration"
-        className="absolute bottom-10 left-10 w-32 opacity-10 animate-[float_8s_ease-in-out_infinite]"
-        style={{ animationDelay: '2s' }}
+        src="/images/Sticker.El.Talapo.png"
+        alt="El Talapo"
+        className="absolute bottom-16 left-16 w-36 opacity-65 z-10 transform -rotate-12"
+        style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
+      />
+      <img
+        src="/images/Sticker.San.Salvador.png"
+        alt="San Salvador"
+        className="absolute top-1/2 left-1/4 w-32 opacity-60 z-10 transform rotate-8"
+        style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
       />
 
       <div className="container mx-auto px-4">

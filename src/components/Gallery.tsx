@@ -70,12 +70,6 @@ export default function Gallery() {
       ref={sectionRef}
       className="py-20 bg-white relative overflow-hidden"
     >
-      {/* Sticker decorativo */}
-      <img
-        src="/images/Sticker.Alsuave.png"
-        alt="Decoration"
-        className="absolute top-10 right-5 w-24 opacity-10 animate-[float_8s_ease-in-out_infinite]"
-      />
 
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
@@ -93,17 +87,50 @@ export default function Gallery() {
             return (
               <div
                 key={dest.id}
-                className={`group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 cursor-pointer ${
+                className={`group bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 cursor-pointer relative ${
                   visibleCards.includes(index)
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-10'
                 }`}
               >
+                {/* Stickers pegados a las esquinas de las tarjetas */}
+                {index === 0 && (
+                  <img
+                    src="/images/Sticker.Que.chivo.png"
+                    alt="Que Chivo"
+                    className="absolute top-2 right-2 w-24 opacity-85 transform rotate-12 z-30"
+                    style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
+                  />
+                )}
+                {index === 1 && (
+                  <img
+                    src="/images/Sticker.Izalco.png"
+                    alt="Izalco"
+                    className="absolute top-2 left-2 w-24 opacity-80 transform -rotate-10 z-30"
+                    style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
+                  />
+                )}
+                {index === 2 && (
+                  <img
+                    src="/images/Sticker.San.Salvador.png"
+                    alt="San Salvador"
+                    className="absolute bottom-2 right-2 w-24 opacity-85 transform rotate-8 z-30"
+                    style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
+                  />
+                )}
+                {index === 3 && (
+                  <img
+                    src="/images/Sticker.Alsuave.png"
+                    alt="Alsuave"
+                    className="absolute bottom-2 left-2 w-24 opacity-80 transform -rotate-6 z-30"
+                    style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))' }}
+                  />
+                )}
                 <div className="relative h-48 bg-gradient-to-br from-secondary to-primary flex items-center justify-center overflow-hidden">
                   <img
                     src={dest.image}
                     alt={dest.name}
-                    className="object-contain group-hover:scale-110 transition-transform duration-500"
+                    className="object-fill group-hover:scale-110 transition-transform duration-500 w-full h-full"
                   />
                 </div>
                 <div className="p-6">
@@ -114,7 +141,7 @@ export default function Gallery() {
                     </h3>
                   </div>
                   <p className="text-gray-600">{dest.description}</p>
-                  <button className="mt-4 text-secondary font-semibold hover:text-primary transition-colors flex items-center group-hover:translate-x-2 transition-transform duration-300">
+                  <button className="mt-4 text-secondary font-semibold hover:text-primary flex items-center group-hover:translate-x-2 transition-all duration-300">
                     Ver más <MapPin className="w-4 h-4 ml-1" />
                   </button>
                 </div>
