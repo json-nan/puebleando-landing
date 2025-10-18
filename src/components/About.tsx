@@ -1,6 +1,40 @@
 import { Award, Heart, Map, Users } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 
+// Custom hook for counting animation
+const useCountUp = (end: number, duration: number = 2000, start: number = 0) => {
+  const [count, setCount] = useState(start)
+  const [isAnimating, setIsAnimating] = useState(false)
+
+  useEffect(() => {
+    if (!isAnimating) return
+
+    let startTime: number
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime
+      const progress = Math.min((currentTime - startTime) / duration, 1)
+      
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4)
+      const currentCount = Math.floor(start + (end - start) * easeOutQuart)
+      
+      setCount(currentCount)
+      
+      if (progress < 1) {
+        requestAnimationFrame(animate)
+      }
+    }
+    
+    requestAnimationFrame(animate)
+  }, [isAnimating, end, duration, start])
+
+  const startAnimation = () => {
+    setIsAnimating(true)
+  }
+
+  return { count, startAnimation }
+}
+
 const stats = [
   {
     icon: Users,
@@ -27,6 +61,51 @@ const stats = [
     trailing: '%',
   },
 ]
+
+// Component for individual animated stat
+const AnimatedStat = ({ stat, index, isVisible }: { 
+  stat: { icon: any, number: number, label: string, trailing: string }, 
+  index: number, 
+  isVisible: boolean 
+}) => {
+  const { count, startAnimation } = useCountUp(stat.number, 2000)
+  const statRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (isVisible) {
+      // Delay the animation start for each stat
+      const timer = setTimeout(() => {
+        startAnimation()
+      }, 400 + index * 200) // Stagger the animations
+      
+      return () => clearTimeout(timer)
+    }
+  }, [isVisible, startAnimation, index])
+
+  const Icon = stat.icon
+  return (
+    <div
+      ref={statRef}
+      className={`bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 ${
+        isVisible
+          ? 'opacity-100 translate-y-0'
+          : 'opacity-0 translate-y-10'
+      }`}
+      style={{ transitionDelay: `${400 + index * 100}ms` }}
+    >
+      <div className="inline-flex items-center justify-center w-12 h-12 bg-secondary/10 rounded-full mb-4">
+        <Icon className="w-6 h-6 text-secondary" />
+      </div>
+      <p className="text-3xl font-bold text-primary mb-2">
+        <span>{count}</span>
+        {stat.trailing}
+      </p>
+      <p className="text-sm text-gray-600 font-semibold">
+        {stat.label}
+      </p>
+    </div>
+  )
+}
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false)
@@ -118,31 +197,14 @@ export default function About() {
 
           {/* Estadísticas */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat, index) => {
-              const Icon = stat.icon
-              return (
-                <div
-                  key={index}
-                  className={`bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 ${
-                    isVisible
-                      ? 'opacity-100 translate-y-0'
-                      : 'opacity-0 translate-y-10'
-                  }`}
-                  style={{ transitionDelay: `${400 + index * 100}ms` }}
-                >
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-secondary/10 rounded-full mb-4">
-                    <Icon className="w-6 h-6 text-secondary" />
-                  </div>
-                  <p className="text-3xl font-bold text-primary mb-2">
-                    <span>{stat.number}</span>
-                    {stat.trailing}
-                  </p>
-                  <p className="text-sm text-gray-600 font-semibold">
-                    {stat.label}
-                  </p>
-                </div>
-              )
-            })}
+            {stats.map((stat, index) => (
+              <AnimatedStat 
+                key={index} 
+                stat={stat} 
+                index={index} 
+                isVisible={isVisible} 
+              />
+            ))}
           </div>
 
           {/* Misión */}
